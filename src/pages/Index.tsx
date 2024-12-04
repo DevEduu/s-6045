@@ -20,9 +20,9 @@ const Index = () => {
       <div className="w-full max-w-md flex flex-col items-center gap-8 z-10">
         {/* Logo */}
         <img 
-          src="/lovable-uploads/35ec3c50-2dc4-4c74-b83a-fe0fd05bc097.png" 
+          src="/lovable-uploads/de350a2e-f540-4309-bf07-fbced1aa1d4a.png" 
           alt="Receba Logo" 
-          className="h-8 mt-12"
+          className="h-12 mt-12"
         />
 
         {/* Tabs */}

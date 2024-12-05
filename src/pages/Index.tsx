@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 const Index = () => {
   const [document, setDocument] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,43 +28,86 @@ const Index = () => {
         />
 
         {/* Tabs */}
-        <Tabs defaultValue="fatura" className="w-full max-w-xs">
+        <Tabs defaultValue="portal" className="w-full max-w-xs">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="portal">Portal</TabsTrigger>
             <TabsTrigger value="fatura">Fatura</TabsTrigger>
           </TabsList>
-        </Tabs>
 
-        {/* Login Form */}
-        <div className="w-full max-w-md space-y-6">
-          <div className="text-center space-y-2">
-            <h1 className="text-2xl font-semibold text-gray-900">Fatura fácil ✌️</h1>
-            <p className="text-gray-600">Para começar, digite seu CPF ou CNPJ</p>
-          </div>
-
-          <form onSubmit={handleLogin} className="space-y-4">
-            <div className="space-y-2">
-              <label htmlFor="document" className="text-sm text-gray-600">
-                CPF ou CNPJ
-              </label>
-              <Input
-                id="document"
-                type="text"
-                placeholder="Entre com o seu CPF ou CNPJ"
-                value={document}
-                onChange={(e) => setDocument(e.target.value)}
-                className="w-full"
-              />
+          <TabsContent value="portal" className="mt-6">
+            <div className="text-center space-y-2 mb-6">
+              <h1 className="text-2xl font-semibold text-gray-900">Portal de acesso ✌️</h1>
+              <p className="text-gray-600">Entre com seu email e senha</p>
             </div>
 
-            <Button
-              type="submit"
-              className="w-full bg-[#22c55e] hover:bg-[#16a34a] text-white font-medium py-6"
-            >
-              Login
-            </Button>
-          </form>
-        </div>
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-sm text-gray-600">
+                  Email
+                </label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="Digite seu email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="password" className="text-sm text-gray-600">
+                  Senha
+                </label>
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="Digite sua senha"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full"
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-[#22c55e] hover:bg-[#16a34a] text-white font-medium py-6"
+              >
+                Entrar
+              </Button>
+            </form>
+          </TabsContent>
+
+          <TabsContent value="fatura" className="mt-6">
+            <div className="text-center space-y-2 mb-6">
+              <h1 className="text-2xl font-semibold text-gray-900">Fatura fácil ✌️</h1>
+              <p className="text-gray-600">Para começar, digite seu CPF ou CNPJ</p>
+            </div>
+
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div className="space-y-2">
+                <label htmlFor="document" className="text-sm text-gray-600">
+                  CPF ou CNPJ
+                </label>
+                <Input
+                  id="document"
+                  type="text"
+                  placeholder="Entre com o seu CPF ou CNPJ"
+                  value={document}
+                  onChange={(e) => setDocument(e.target.value)}
+                  className="w-full"
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-[#22c55e] hover:bg-[#16a34a] text-white font-medium py-6"
+              >
+                Login
+              </Button>
+            </form>
+          </TabsContent>
+        </Tabs>
       </div>
 
       {/* Footer */}

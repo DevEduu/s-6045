@@ -51,7 +51,7 @@ const Index = () => {
                   placeholder="Digite seu email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full"
+                  className="w-full rounded-full"
                 />
               </div>
 
@@ -65,13 +65,13 @@ const Index = () => {
                   placeholder="Digite sua senha"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full"
+                  className="w-full rounded-full"
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-[#22c55e] hover:bg-[#16a34a] text-white font-medium py-6"
+                className="w-full bg-[#22c55e] hover:bg-[#16a34a] text-white font-medium py-6 rounded-full"
               >
                 Entrar
               </Button>
@@ -95,13 +95,13 @@ const Index = () => {
                   placeholder="Entre com o seu CPF ou CNPJ"
                   value={document}
                   onChange={(e) => setDocument(e.target.value)}
-                  className="w-full"
+                  className="w-full rounded-full"
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-[#22c55e] hover:bg-[#16a34a] text-white font-medium py-6"
+                className="w-full bg-[#22c55e] hover:bg-[#16a34a] text-white font-medium py-6 rounded-full"
               >
                 Login
               </Button>

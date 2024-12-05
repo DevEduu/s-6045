@@ -2,15 +2,29 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const Index = () => {
   const [document, setDocument] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
+    if (email === "eduardo@receba.com" && password === "1234") {
+      toast.success("Login realizado com sucesso!");
+      navigate("/bills");
+    } else {
+      toast.error("Email ou senha inválidos");
+    }
+  };
+
+  const handleBillAccess = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle bill access logic here
+    toast.error("Funcionalidade em desenvolvimento");
   };
 
   return (
@@ -84,7 +98,7 @@ const Index = () => {
               <p className="text-gray-600">Para começar, digite seu CPF ou CNPJ</p>
             </div>
 
-            <form onSubmit={handleLogin} className="space-y-4">
+            <form onSubmit={handleBillAccess} className="space-y-4">
               <div className="space-y-2">
                 <label htmlFor="document" className="text-sm text-gray-600">
                   CPF ou CNPJ
